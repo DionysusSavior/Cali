@@ -6,14 +6,15 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:4000/api/goals')
+    fetch(`${import.meta.env.VITE_API_URL}/api/goals`)
       .then(res => res.json())
       .then(setGoals);
-
-    fetch('http://localhost:4000/api/tasks')
+  
+    fetch(`${import.meta.env.VITE_API_URL}/api/tasks`)
       .then(res => res.json())
       .then(setTasks);
   }, []);
+  
 
   return (
     <div className="p-6 font-sans">
